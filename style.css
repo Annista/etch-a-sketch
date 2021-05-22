@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+  }
+
+#main-grid-div{
+    display: grid;
+    grid-template-columns: repeat(16, 25px);
+    grid-template-rows: repeat(16, 25px);
+  }
+
+  .single-grid-tile{
+      background-color: white;
+      height: 20px;
+      width: 20px;
+  }
