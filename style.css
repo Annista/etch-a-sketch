@@ -2,13 +2,27 @@
     box-sizing: border-box;
   }
 
+  #body{
+    display: flex;
+    justify-content: center;
+  }
+
 #main-grid-div{
+    margin: 60px;
+    padding: 20px;
+}
+
+
+  #all-grid-tiles-div{
     display: grid;
     grid-template-columns: repeat(16, 25px);
     grid-template-rows: repeat(16, 25px);
+    padding: 30px;
+    
   }
 
-  .single-grid-tile{
+  
+  .all-grid-tiles{
       background-color: white;
       height: 20px;
       width: 20px;
