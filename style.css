@@ -7,6 +7,28 @@
     justify-content: center;
   }
 
+.pseudo-button{
+    background-color: rebeccapurple;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    color: darkgray;
+    font-weight: bolder;
+    cursor: pointer;
+
+   
+
+}
+
+.button-text{
+    color: white;
+}
+
+#clear-button{
+    position: absolute;
+    left: 50%;
+}
+
 #main-grid-div{
     margin: 60px;
     padding: 20px;
