@@ -26,26 +26,26 @@
 
 #clear-button{
     position: absolute;
-    left: 50%;
+    left: 47%;
 }
 
 #main-grid-div{
+
     margin: 60px;
     padding: 20px;
+    height: 540px;
+    width: 540px;
+    
+    
 }
 
 
   #all-grid-tiles-div{
     display: grid;
-    grid-template-columns: repeat(16, 25px);
-    grid-template-rows: repeat(16, 25px);
-    padding: 30px;
-    
+    grid-gap: 1px;
   }
 
   
-  .all-grid-tiles{
+  .all-grid-tiles{  
       background-color: white;
-      height: 20px;
-      width: 20px;
   }
