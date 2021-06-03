@@ -29,8 +29,8 @@ function createGrid(squaresEachSide){//squaresEachSide-Number of grid squares/ti
 
             const randColor= `rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)})`
             singleGridDiv.style.backgroundColor=randColor;
-            //singleGridDiv.style.backgroundColor= "black"; //when the mouse hovers over each grid tile, it will
-        });                                               //turn black
+             //when the mouse hovers over each grid tile, it will change into a randomized color
+        });                                               
 
         singleGridDiv.style.height= "100%";//The height and width of each div is set to 100% of the grid square. 
         singleGridDiv.style.width= "100%";//The exact measurement will depend on the number of squares in the grid
@@ -48,7 +48,12 @@ function createGrid(squaresEachSide){//squaresEachSide-Number of grid squares/ti
 }
 
 function promptGrid(){
-    let numberSquares= prompt("How many squares do  you want on each side of the grid?");
+
+    let numberSquares;
+    do{
+         numberSquares= prompt("How many squares do  you want on each side of the grid? (1-100)");
+    }while(numberSquares<1 || numberSquares>100);
+
     return numberSquares;
 }
 
