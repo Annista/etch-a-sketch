@@ -18,12 +18,14 @@ allGridTilesDiv.setAttribute("id", "all-grid-tiles-div");
 allGridTilesDiv.style.width= "500px";
 allGridTilesDiv.style.height= "500px";
 
+let preNumSquares; //stores the number of squares that was previously entered by user
+
 
 function createGrid(squaresEachSide){//squaresEachSide-Number of grid squares/tiles on each side of the grid
 
-    for(let i=0; i<(squaresEachSide*squaresEachSide); i++){          //This for loop creates a total of 256 div, which will make up our grid
-        const singleGridDiv= document.createElement("div");
-        singleGridDiv.classList.add("all-grid-tiles");
+    for(let i=0; i<(squaresEachSide*squaresEachSide); i++){    //This for loop creates a total of 
+        const singleGridDiv= document.createElement("div");    // squaresEachSide*squaresEachSide divs, 
+        singleGridDiv.classList.add("all-grid-tiles");         //which will make up our grid
 
         singleGridDiv.addEventListener("mouseover", ()=>{
 
@@ -50,9 +52,26 @@ function createGrid(squaresEachSide){//squaresEachSide-Number of grid squares/ti
 function promptGrid(){
 
     let numberSquares;
+
     do{
          numberSquares= prompt("How many squares do  you want on each side of the grid? (1-100)");
-    }while(numberSquares<1 || numberSquares>100);
+
+         if (((numberSquares<1) || ( numberSquares>100) )&& (!(numberSquares===null))){  
+            alert("Invalid value!! Must be between 1 and 100");   //Makes the user know that they have entered 
+                                                                   //an invalid value
+        }
+
+         if(numberSquares===null){    //This indicates that the user clicked 'cancel'
+             return preNumSquares;    //In this case, the previous value (of number of squares) entered 
+                                      //is returned
+         }
+    }while(numberSquares<1 || numberSquares>100); //an input that is less than 1 or more than 100 is not valid, 
+                                  //so the loop will keep going until the prompt receives a valid value
+
+    
+    preNumSquares=numberSquares;//current number of squares is stored in this variable in case user decides to 
+                                //select 'cancel' in the future. At that time the program wll just use the 
+                                //previous number of squares to make the new grid
 
     return numberSquares;
 }
@@ -87,7 +106,7 @@ clearButton.addEventListener("click", ()=>{
         tile.style.backgroundColor= "white"; //clears all grid tiles by making them white again    
     });
 
-    setTimeout(changeGrid, 2000);    
+    setTimeout(changeGrid, 200);    
 });
 
 startEtchASketch();
